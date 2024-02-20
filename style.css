@@ -15,59 +15,143 @@ html{
     transition: all .2s linear;
     line-height: 1.5;
 }
-.first-box{
-    height: 100vh;
-    width: 100%;
-    background: white;
-    /* alterations */
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    cursor: pointer;
-}
 
-.heading{
-    width: 100%;
-    height: 10vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px;
-    align-items: center;
-
-}
 .logo{
     color: rgb(5, 25, 241);
+    display: flex;
 }
-.nav a{
-    height: auto;
-    width: auto;
-    justify-content: space-around;
-    padding: 10px;
-    font-weight: 200;
-    font-size: 20px;
-    color: black;
+.logo i{
+    font-size: 30px;
 }
-.nav a:hover{
-    color: crimson;
+
+/*Navbar*/
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    background-color: #001C30;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
 }
-.hire p{
-    padding: 10px 40px ;
-    font-size: 20px;
-    color: black;
-    background: orangered;
-    border-radius: 5px;
+
+.navbar a{
+    font-size: 1.15rem;
+    color: #fcfcfc;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+    cursor: pointer;
 }
-.hire p:hover{
-    padding: 15px 45px ;
+.navbar a:hover{
+    border-bottom:3px solid #27efa6;
+}
+.active{
+    border-bottom: 3px solid red;
+}
+
+
+
+.icon{
+    font-size: 2.8rem;
+    color: #ffff;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 5%;
+
 
 }
+#check{
+    display: none;
+
+}
+.icon #close-icon{
+    display: none;
+}
+
+
+
+/*Break points*/
+@media (max-width:992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+@media (max-width:768px){
+    .icon{
+        display: inline-flex;
+    }
+    #check:checked~.icon #menu-icon{
+        display: none;
+
+    }
+    .icon #close-icon{
+        display: none;
+    }
+    #check:checked~.icon #close-icon{
+        display: block;
+
+    }
+    
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #0c111a;
+        transition: 0.2s ease-out;
+    }
+    #check:checked~.navbar{
+        height: 14rem;
+    
+    }
+    .navbar a{
+        display: none;
+        font-size: 1.1rem;
+        margin: 1.5rem;
+        text-align: center;
+        transform: translateY(-50px);
+        transition: 1s ease-out;
+        
+    }
+    .navbar a:hover{
+        border-bottom:none;
+    }
+    .active{
+        border-bottom: none;
+    }
+    #check:checked~.navbar a{
+        transform: translateY(0);
+        display: block;
+    }
+}
+
+.container{
+    overflow: hidden;
+}
+
+
+
+/*Home page*/
+
+.first-box{
+    /* min-height: 100vh; */
+    width: 100%;
+    background: white;
+    cursor: pointer;
+    padding: 80px;
+}
+
 .intro{
-    margin: 50px;
     display: flex;
+    flex-wrap: wrap-reverse;
     position: relative;
-   
     padding: 10px;
     justify-content: space-around;
 }
@@ -76,8 +160,8 @@ html{
     flex-direction: column;
     justify-content: space-around;
     border-radius: 10px;
-    padding: 25px;
-    margin: 60px 20px;
+    padding: 20px;
+    margin-top: 10px;
     background-color: antiquewhite;
 }
 .text-1{
@@ -114,12 +198,12 @@ html{
     justify-content: center;
     border: none;
     border-radius: 50%;
-    height: 330px;
-    /* width: 310px; */
+    /* min-height: 300px; */
    object-fit: cover;
    cursor: pointer;
    transition: all 0.3s ease-in-out;
-   
+   padding-top: 20px;
+
     
 }
 .cont:hover{
@@ -134,33 +218,23 @@ html{
     text-align: center;
     padding: 10px;
     object-fit: cover;
-    height: auto;
     width: min-content; 
     
     
 }
 .img-1 img{
-    height: 320px;
-    width: 320px;
     border-radius: 50%;
     z-index: 20;
-    border: 10px solid #ae31d9;
-    
+    border: 5px solid #ae31d9;
     transition: all 0.3s ease;
-
+    height: 200px;
+    width: 200px;
 
 }
 .cont:hover .img-1 img{
     border: 5px solid #fff;
 }
-.img-1 img.active{
-    height: 300px;
-    width: 300px;
-    border-radius: 5px;
-    border: none;
 
-
-}
 .cont:hover .web{
     display: none;
     visibility: none;
@@ -246,33 +320,70 @@ html{
     padding: 4px;
 }
 
+@media (max-width:1020px){
+    .middle .text-1{
+        font-size: 20px;
+    }
+    .middle .text{
+        font-size: 20px;
+    }
+    .img-1 img{
+        height: 150px;
+        width: 150px;
+    }
+    .web h1{
+        font-size: 20px;
+    }
+    .buttons .btn{
+        width: 100px;
+    }
+    .buttons .btn button{
+        font-size: 15px;
+    }
+    .btn button:hover{
+        transform: scale(1.1);
+    }
+    .title{
+        font-size: 20px;
+    }
+    .content p{
+        font-size: 15px;
+    }
+    .cont .follow a{
+        height: 30px;
+        font-size: 15px;
+    }
+
+
+}
+
+
+
+/*About Page*/
 .about{
-    height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
     background-color: #071329;
     text-align: center;
     color: #fff;
-    position: sticky;
-    top:0;
-    left:0;
     z-index: 10;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
     cursor: pointer;
 
 }
 .intro-img img{
-    height: 100vh;
-    width: 800px;
+   height: 100vh;
+   width: 600px;
 }
 
 .box-2{
      display: flex;
+     width: 50%;
      flex-direction: column;
      text-align: left;
-     margin-top: 70px;
-     margin-left: 50px;
-     margin-right: 20px;
+    padding: 20px;
 }
 
 .abo a{
@@ -296,9 +407,6 @@ mark{
 
 .intro-2{
     overflow:hidden;
-    display:inline-block;
-    white-space:nowrap;
-    width: auto;
     animation: reveal 8s infinite;
      
 
@@ -364,10 +472,64 @@ mark{
   .script {width: 60%; background-color: #e0e40d;}
   .react {width: 30%; background-color: #e41515;}
 
+@media (max-width:1040px){
+    .intro-img img{
+        height: 50vh;
+        width: 460px;
+     }
+     .skill{
+        width: 350px;
+    
+    }
+
+
+}
+
+@media (max-width:950px){
+    .intro-img img{
+        height: 70vh;
+        width: 400px;
+     }
+     .skill{
+        width: 300px;
+    
+    }
+
+
+}
+
+@media (max-width:770px){
+    .intro-img img{
+        height: 60vh;
+        width: 400px;
+        
+     }
+     .skill{
+        width: 280px;
+    
+    }
+    .intro-img{
+        align-items: center;
+        justify-content: center;
+    }
+    .box-2{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .about{
+        align-items: center;
+        justify-content: center;
+    }
+
+
+}
+
+/*Service page*/
  .service-provide{
-    height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
-    background: #1e1c1d;
+    background: #090a25;
     text-align: center;
     position: sticky;
     top:0;
@@ -376,8 +538,8 @@ mark{
 }
 .service{
     background-color: #DAFFFB;
-    padding: 20px;
-    font-size: 30px;
+    padding: 10px;
+    font-size: 20px;
     color: #001C30;
 }
 .service:hover{
@@ -397,25 +559,34 @@ mark{
 
 }
 .skill-box img{
-    width: 430px;
-    height: 250px;
+    width: 300px;
+    height: 180px;
     border-radius: 10px;
     transition: all 0.2s;
     border: none;
 }
 .skill-box img:hover{
-    width: 450px;
-    height: 280px;
+    width: 320px;
+    height: 200px;
     border: none;
-    box-shadow:1px 5px 30px 1px #05bcb9;
+    box-shadow:1px 5px 30px 1px #09b5b5;
 }
 
+@media (max-width:770px){
+    .skill-box img{
+        width: 250px;
+        height: 180px;
+        
+    }
+}
+
+/*contact Page*/
 .contact-me{
-    height: 100vh;
+    /* min-height: 100vh; */
     width: 100%;
     background: #0b0b21;
     text-align: center;
-    position: sticky;
+    /* position: sticky; */
     top:0;
     left:0;
     z-index: 20;
@@ -425,7 +596,7 @@ mark{
 .me1{
     padding: 10px;
     background: #05bcb9;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 .me1 h2 a{
@@ -437,9 +608,10 @@ mark{
 .mid-box{
     display: flex;
     padding: 30px;
+    flex-wrap: wrap;
     justify-content: space-around;
     text-align: left;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 
 }
 .mid-box1{
@@ -509,7 +681,35 @@ mark{
 .mid-name button a:hover{
     color: white;
 }
+@media (max-width:770px){
+    .mid-box1{
+        margin-top: 0;
+        padding: 5px;
+        padding-bottom: 20px;
+        width: 100%;
+        
+    }
+    .mid-text1{
+        font-size: 12px;
+    }
+    .mid-text2{
+        font-size: 12px;
+    }
+    .mid-box{
+        justify-content: center;
+        align-items: center;
+    }
+    .mid-name input{
+        width: 250px;  
+        
+    }
+    .mid-name textarea{
+        width: 250px;
+    }
+}
 
+
+/* end page*/
 .end-page{
     background-color: black;
     margin-top: 40px;

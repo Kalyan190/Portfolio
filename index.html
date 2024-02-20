@@ -9,29 +9,34 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
+     <header class="header">
+        <div class="logo fa-3x">
+            <i class="fa-solid fa-cog fa-spin"></i>
+            <i class="fa-solid fa-cog fa-spin" style="--fa-animation-direction: reverse"></i>
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check" class="icon">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class="bx bx-x" id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="#Home" class="nav-link" data-target="Home">Home</a>
+            <a href="#About" class="nav-link" data-target="About">About</a>
+            <a href="#Portfolio" class="nav-link" data-target="Portfolio">Portfolio</a>
+            <a href="#Contact" class="nav-link" data-target="Contact">Contact</a>
+        </nav>
+     </header>
+   
+
     <div class="container">
         <div class="wrapper">
-            <div class="first-box">
-                <div class="heading">
-                    <div class="logo fa-3x">
-                        <i class="fa-solid fa-cog fa-spin"></i>
-                        <i class="fa-solid fa-cog fa-spin" style="--fa-animation-direction: reverse"></i>
-                    </div>
-                    <div class="nav">
-                        <a href="#Home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#Portfolio">Portfolio</a>
-                        <a href="#Contact">Contact</a>
-                    </div>
-                    <div class="hire">
-                        <p>
-                            <a href="https://www.linkedin.com/in/kalyan-kumar-a79539226/" target="_blank">Hire Me</a>
-                        </p>
-                    </div>
-                </div>
+            <div class="first-box" id="Home">
+                
                 <div class="intro">
                     <div class="middle">
                         <div class="text-1">
@@ -54,11 +59,12 @@
                                     Kalyan Kumar
                                 </h1>
                             </div>
-                            <div class="self-1">
-                                <div class="title">Kalyan Kumar</div>
-                                <div class="place">Gaya, India</div>
-                            </div>
+                           
                             <div class="content">
+                                <div class="self-1">
+                                    <div class="title">Kalyan Kumar</div>
+                                    <div class="place">Gaya, India</div>
+                                </div>
                                 <p>
                                     Problem solver, User interface Designer and frontend -
                                     Developer
@@ -85,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="about" id="about">
+            <div class="about" id="About">
                 <div class="intro-img">
                     <img src="442861.jpg" alt="error" />
                 </div>
@@ -161,6 +167,7 @@
                     </div>
                 </div>
             </div>
+         <!-- contact page -->
             <div class="contact-me" id="Contact">
                 <div class="me1">
                     <h2>
@@ -235,12 +242,6 @@
         </div>
     </div>
 
-    <script>
-        const img = document.querySelector("img");
-        img.onclick = function () {
-            this.classList.toggle("active");
-        };
-    </script>
 </body>
 
 </html>
